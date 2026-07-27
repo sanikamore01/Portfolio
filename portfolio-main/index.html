@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanika More | Full-Stack Developer</title>
+    <link
+      rel="icon"
+      href="https://i.ibb.co/xqJ5YSW1/peeps-avatar-alpha.png"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --spring-green: #26ffa0;
+        --eucalyptus: #3ddc97;
+        --spanish-violet: #46237a;
+        --plump-purple: #6f41c2;
+        --medium-purple: #9b76e3;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        scroll-behavior: smooth;
+        background-color: #0f0f1a;
+        color: #f0f0f5;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          var(--spanish-violet) 0%,
+          var(--plump-purple) 100%
+        );
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          90deg,
+          var(--spring-green),
+          var(--eucalyptus)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .glow {
+        text-shadow: 0 0 10px rgba(38, 255, 160, 0.5);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px -5px rgba(61, 220, 151, 0.3);
+      }
+
+      .project-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 20px 25px -5px rgba(111, 65, 194, 0.3);
+      }
+
+      .floating-btn {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(61, 220, 151, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(61, 220, 151, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(61, 220, 151, 0);
+        }
+      }
+
+      .neon-border {
+        position: relative;
+      }
+
+      .neon-border::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(
+          45deg,
+          var(--spring-green),
+          var(--medium-purple),
+          var(--plump-purple)
+        );
+        background-size: 200%;
+        border-radius: inherit;
+        animation: borderGlow 3s linear infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes borderGlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .particle {
+        position: absolute;
+        background-color: var(--spring-green);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .code-bg {
+        background-color: #1a1a2e;
+        border-left: 4px solid var(--spring-green);
+      }
+
+      .terminal-header {
+        background-color: #2d2d44;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+      }
+
+      .terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 6px;
+      }
+
+      .terminal-body {
+        padding: 16px;
+        font-family: "Courier New", monospace;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      .comment {
+        color: #5f7e97;
+      }
+
+      .keyword {
+        color: var(--medium-purple);
+      }
+
+      .string {
+        color: var(--eucalyptus);
+      }
+
+      .function {
+        color: #4ec9b0;
+      }
+
+      .variable {
+        color: #9cdcfe;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a2e;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--plump-purple);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--medium-purple);
+      }
+
+      /* Active nav link */
+      .nav-link.active span {
+        color: var(--spring-green);
+      }
+
+      .nav-link.active div {
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          var(--spring-green),
+          var(--eucalyptus)
+        );
+      }
+
+      /* Animated background */
+      .animated-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: linear-gradient(45deg, #0f0f1a, #1a1a2e, #2d2d44);
+        background-size: 300% 300%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Project card tags animation */
+      .project-tag {
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover .project-tag {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Form input focus effect */
+      .form-input:focus {
+        box-shadow: 0 0 0 3px rgba(61, 220, 151, 0.3);
+      }
+
+      /* Section reveal animation */
+      .section-hidden {
+        opacity: 0;
+        transform: translateY(8rem);
+      }
+
+      .section {
+        transition: transform 1s, opacity 1s;
+      }
+
+      /* Carousel styles */
+      .projects-carousel {
+        overflow: hidden;
+        position: relative;
+      }
+
+      #projects-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card {
+        flex: 0 0 100%;
+        padding: 0 1rem;
+        box-sizing: border-box;
+      }
+
+      @media (min-width: 768px) {
+        .project-card {
+          flex: 0 0 50%;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .project-card {
+          flex: 0 0 33.333%;
+        }
+      }
+
+      /* Education Card */
+      .backdrop-blur-sm {
+        backdrop-filter: blur(8px);
+      }
+      .bg-opacity-50 {
+        background-opacity: 0.5;
+      }
+      .group:hover .group-hover\:rotate-\[15deg\] {
+        transform: rotate(15deg);
+      }
+      .filter-blur-\[100px\] {
+        filter: blur(100px);
+      }
+      .filter-blur-\[120px\] {
+        filter: blur(120px);
+      }
+      .filter-blur-\[150px\] {
+        filter: blur(150px);
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Animated Background Particles -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-black bg-opacity-80 backdrop-blur-md z-50 border-b border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <a href="#home" class="flex items-center space-x-3">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center"
+            >
+              <span class="text-white font-bold">SM</span>
+            </div>
+            <span class="text-xl font-bold gradient-text">Sanika More</span>
+          </a>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>Home</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+            <a
+              href="#about"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>About</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+            <a
+              href="#education"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>Education</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+            <a
+              href="#skills"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>Skills</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+            <a
+              href="#projects"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>Projects</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+            <a
+              href="#contact"
+              class="nav-link text-gray-300 hover:text-white hover:gradient-text transition flex flex-col items-center"
+            >
+              <span>Contact</span>
+              <div
+                class="h-0.5 w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 mt-1"
+              ></div>
+            </a>
+          </div>
+          <button class="md:hidden focus:outline-none" id="menu-btn">
+            <svg
+              class="w-6 h-6 text-gray-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-black bg-opacity-90 w-full py-2"
+        id="mobile-menu"
+      >
+        <a
+          href="#home"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >About</a
+        >
+        <a
+          href="#education"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >Education</a
+        >
+        <a
+          href="#skills"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >Skills</a
+        >
+        <a
+          href="#projects"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >Projects</a
+        >
+        <a
+          href="#contact"
+          class="block px-4 py-3 hover:bg-gray-900 transition hover:text-green-400"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-32 pb-24 min-h-screen flex items-center relative overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-transparent opacity-80"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black to-transparent opacity-60"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-12 md:mb-0">
+            <h4 class="text-lg text-green-400 mb-4 font-mono">
+              Hi, my name is
+            </h4>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white">
+              Sanika More
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 text-gray-300">
+              I build <span id="typed" class="gradient-text"></span>
+            </h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-lg">
+              I'm a full-stack and app developer specializing in building
+              exceptional digital experiences. Currently focused on creating
+              accessible, human-centered applications.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="bg-gradient-to-r from-green-400 to-blue-500 text-black px-6 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-green-400/30 transition transform hover:-translate-y-1"
+              >
+                Get In Touch
+              </a>
+              <a
+                href="#projects"
+                class="border-2 border-gray-700 text-white px-6 py-3 rounded-full font-bold hover:border-green-400 hover:text-green-400 transition"
+              >
+                View My Work
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-green-400 shadow-xl relative neon-border"
+              >
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D4D03AQHXERy7W4i-zw/profile-displayphoto-scale_400_400/B4DZxiZBFNKEAk-/0/1771177253809?e=1781740800&v=beta&t=UvkyEGTJWhjP5xNfg_ASVXZxKrE8NUEwLXaTkGQFxAw"
+                  alt="Sanika More"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"
+                ></div>
+              </div>
+              <div
+                class="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-400 to-blue-500 text-black px-4 py-2 rounded-full font-bold shadow-lg flex items-center"
+              >
+                <div class="w-2 h-2 bg-black rounded-full mr-2 pulse"></div>
+                Available for work
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <a
+          href="#about"
+          class="text-gray-400 hover:text-green-400 transition"
+          aria-label="Scroll down"
+        >
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-20 bg-gray-900 relative overflow-hidden section"
+    >
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">About Me</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row items-center">
+          <!--  -->
+          <div class="lg:w-2/5 mb-12 lg:mb-0 flex justify-center">
+            <div class="relative">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-green-400 shadow-2xl transform rotate-3"
+              >
+                <img
+                  src="https://www.magnific.com/vectors/female-programmer "
+                  alt="Sanika More"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div
+                class="absolute -bottom-6 -left-6 w-64 h-64 md:w-80 md:h-80 rounded-2xl border-4 border-purple-400 shadow-2xl transform -rotate-3 z-[-1]"
+              ></div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="lg:w-3/5 lg:pl-16">
+            <div class="terminal mb-8">
+              <div class="terminal-header">
+                <div class="terminal-dot bg-red-500"></div>
+                <div class="terminal-dot bg-yellow-500"></div>
+                <div class="terminal-dot bg-green-500"></div>
+                <span class="text-gray-400 text-sm ml-4">about_sanika</span>
+              </div>
+              <div class="terminal-body code-bg">
+                <p class="text-gray-400 mb-4">
+                  <span class="comment"># Who am I?</span>
+                </p>
+                <p class="text-white mb-2">
+                  <span class="keyword">const</span>
+                  <span class="variable">Sanika</span> = {
+                </p>
+                <p class="text-white ml-4 mb-2">
+                  <span class="string">"role"</span>:
+                  <span class="string">"Full-Stack Developer"</span>,
+                </p>
+                <p class="text-white ml-4 mb-2">
+                  <span class="string">"passion"</span>:
+                  <span class="string"
+                    >"Creating innovative digital solutions"</span
+                  >,
+                </p>
+                <p class="text-white ml-4 mb-2">
+                  <span class="string">"focus"</span>: [<span class="string"
+                    >"Web Development"</span
+                  >, <span class="string">"Mobile Apps"</span>,
+                  <span class="string">"AI Integration"</span>],
+                </p>
+                <p class="text-white ml-4">};</p>
+                <p class="text-gray-400 mt-6">
+                  <span class="comment"># My journey</span>
+                </p>
+                <p class="text-white">
+                  <span class="function">function</span>
+                  <span class="variable">myStory</span>() {
+                </p>
+                <p class="text-white ml-4">
+                  <span class="keyword">return</span>
+                  <span class="string"
+                    >"Tech-driven individual passionate about web development,
+                    teaching, and creating innovative digital solutions. With a
+                    strong foundation in both front-end and back-end
+                    technologies, I love building applications that solve
+                    real-world problems."</span
+                  >;
+                </p>
+                <p class="text-white">}</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              <div
+                class="bg-gray-800 p-4 rounded-lg border-l-4 border-green-400 hover:transform hover:-translate-y-1 transition duration-300"
+              >
+                <h4 class="text-green-400 font-bold">1+</h4>
+                <p class="text-gray-400 text-sm">Years Experience</p>
+              </div>
+              <div
+                class="bg-gray-800 p-4 rounded-lg border-l-4 border-purple-400 hover:transform hover:-translate-y-1 transition duration-300"
+              >
+                <h4 class="text-purple-400 font-bold">10+</h4>
+                <p class="text-gray-400 text-sm">Projects Completed</p>
+              </div>
+              <div
+                class="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-400 hover:transform hover:-translate-y-1 transition duration-300"
+              >
+                <h4 class="text-blue-400 font-bold">2+</h4>
+                <p class="text-gray-400 text-sm">Happy Clients</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#"
+                class="bg-gradient-to-r from-green-400 to-blue-500 text-black px-6 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-green-400/30 transition transform hover:-translate-y-1 hover:scale-105 flex items-center"
+              >
+                <i class="fas fa-download mr-2"></i> Download CV
+              </a>
+              <a
+                href="#contact"
+                class="border-2 border-gray-700 text-white px-6 py-3 rounded-full font-bold hover:border-green-400 hover:text-green-400 transition transform hover:-translate-y-1 hover:scale-105 flex items-center"
+              >
+                <i class="fas fa-paper-plane mr-2"></i> Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      id="education"
+      class="py-12 md:py-24 bg-gray-900 relative overflow-hidden section"
+    >
+      <!-- Background Elements -->
+      <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div
+          class="absolute top-20 left-10 w-64 h-64 bg-purple-900 rounded-full filter blur-[100px] opacity-10"
+        ></div>
+        <div
+          class="absolute bottom-10 right-20 w-80 h-80 bg-green-900 rounded-full filter blur-[120px] opacity-10"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">Academic Journey</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <!-- Mobile Timeline (for small screens) -->
+        <div class="md:hidden space-y-8">
+          <!-- Schooling -->
+          <div class="relative pl-8 border-l-2 border-green-400">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-400"
+            ></div>
+            <div
+              class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-school text-white"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-gray-400"
+                    >2009 - 2021</span
+                  >
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-1">
+                Primary & Secondary Education
+              </h3>
+              <p class="text-green-400 text-sm mb-2">
+                Rajat Education Society,Hupari
+              </p>
+              <p class="text-gray-300 text-sm">
+                Completed 10th standard with distinction, laying the foundation
+                for my technical journey.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Mathematics</span
+                >
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Science</span
+                >
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >English</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Diploma -->
+          <div class="relative pl-8 border-l-2 border-purple-400">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-400"
+            ></div>
+            <div
+              class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-laptop-code text-white"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-gray-400"
+                    >2021 - 2024</span
+                  >
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-1">
+                Diploma in Computer Engineering
+              </h3>
+              <p class="text-purple-400 text-sm mb-2">
+                DKTE's Yashwantrao Chavan Polytechnic
+              </p>
+              <p class="text-gray-300 text-sm">
+                Specialized in computer systems and programming, with hands-on
+                projects in web and software development.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Programming</span
+                >
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Web Development</span
+                >
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Database Systems</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Degree -->
+          <div class="relative pl-8 border-l-2 border-blue-400">
+            <div
+              class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-400"
+            ></div>
+            <div
+              class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-xl shadow-lg"
+            >
+              <div class="flex items-center mb-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-user-graduate text-white"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-gray-400"
+                    >2024 - Present</span
+                  >
+                </div>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-1">
+                Bachelor's in Computer Engineering
+              </h3>
+              <p class="text-blue-400 text-sm mb-2">
+                DKTE Society's Textile & Engineering Institute
+              </p>
+              <p class="text-gray-300 text-sm">
+                Currently pursuing advanced studies in computer science with
+                focus on AI/ML, cloud computing, and full-stack development.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >AI/ML</span
+                > 
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Cloud Computing</span
+                >
+                <span
+                  class="px-2 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                  >Full-Stack</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Timeline (for medium+ screens) -->
+        <div class="hidden md:block relative">
+          <!-- Timeline Line -->
+          <div
+            class="absolute left-1/2 h-full w-1 bg-gradient-to-b from-green-400 to-blue-500 transform -translate-x-1/2"
+          ></div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-16 md:space-y-24">
+            <!-- Schooling -->
+            <div class="relative group">
+              <div class="flex items-center justify-center gap-12">
+                <!-- Left Side -->
+                <div
+                  class="w-5/12 text-right mb-8 transform transition-all duration-500 group-hover:-translate-x-6"
+                >
+                  <div class="inline-block">
+                    <div
+                      class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-2xl border-l-4 border-green-400 shadow-xl"
+                    >
+                      <div class="flex items-center justify-end mb-4">
+                        <span
+                          class="text-xs font-mono text-gray-400 bg-gray-700 px-3 py-1 rounded-full"
+                          >2009 - 2021</span
+                        >
+                      </div>
+                      <h3 class="text-2xl font-bold text-white mb-2">
+                        Primary & Secondary Education
+                      </h3>
+                      <p class="text-green-400 font-medium mb-1">
+                        Rajat Education Society,Hupari
+                      </p>
+                      <p class="text-gray-300">
+                        Completed 10th standard with distinction, laying the
+                        foundation for my technical journey.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Dot -->
+                <div
+                  class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-blue-500 shadow-lg z-10 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-green-400/30"
+                >
+                  <i class="fas fa-school text-white text-xl"></i>
+                </div>
+
+                <!-- Right Side -->
+                <div
+                  class="w-5/12 transform transition-all duration-500 group-hover:translate-x-6"
+                >
+                  <div class="h-full flex items-center">
+                    <div
+                      class="bg-gray-800 bg-opacity-30 p-6 rounded-2xl border border-gray-700 w-full"
+                    >
+                      <div class="flex flex-wrap gap-2">
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Mathematics</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Science</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >English</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Computer Basics</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diploma -->
+            <div class="relative group">
+              <div class="flex items-center justify-center gap-12">
+                <!-- Left Side -->
+                <div
+                  class="w-5/12 text-right mb-8 transform transition-all duration-500 group-hover:-translate-x-6"
+                >
+                  <div class="h-full flex items-center justify-end">
+                    <div
+                      class="bg-gray-800 bg-opacity-30 p-6 rounded-2xl border border-gray-700 w-full"
+                    >
+                      <div class="flex flex-wrap gap-2 justify-end">
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Programming</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Data Structures</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Web Development</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Dot -->
+                <div
+                  class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg z-10 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-purple-400/30"
+                >
+                  <i class="fas fa-laptop-code text-white text-xl"></i>
+                </div>
+
+                <!-- Right Side -->
+                <div
+                  class="w-5/12 transform transition-all duration-500 group-hover:translate-x-6"
+                >
+                  <div class="inline-block">
+                    <div
+                      class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-2xl border-l-4 border-purple-400 shadow-xl"
+                    >
+                      <div class="flex items-center justify-between mb-4">
+                        <span
+                          class="text-xs font-mono text-gray-400 bg-gray-700 px-3 py-1 rounded-full"
+                          >2021 - 2024</span
+                        >
+                      </div>
+                      <h3 class="text-2xl font-bold text-white mb-2">
+                        Diploma in Computer Engineering
+                      </h3>
+                      <p class="text-purple-400 font-medium mb-1">
+                        DKTE's Yashwantrao Chavan Polytechnic
+                      </p>
+                      <p class="text-gray-300">
+                        Specialized in computer systems and programming, with
+                        hands-on projects in web and software development.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Degree -->
+            <div class="relative group">
+              <div class="flex items-center justify-center gap-12">
+                <!-- Left Side -->
+                <div
+                  class="w-5/12 text-right mb-8 transform transition-all duration-500 group-hover:-translate-x-6"
+                >
+                  <div class="inline-block">
+                    <div
+                      class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-6 rounded-2xl border-l-4 border-blue-400 shadow-xl"
+                    >
+                      <div class="flex items-center justify-end mb-4">
+                        <span
+                          class="text-xs font-mono text-gray-400 bg-gray-700 px-3 py-1 rounded-full"
+                          >2024 - Present</span
+                        >
+                      </div>
+                      <h3 class="text-2xl font-bold text-white mb-2">
+                        Bachelor's in Computer Engineering
+                      </h3>
+                      <p class="text-blue-400 font-medium mb-1">
+                        Dr.D.Y.Patil Kolhapur
+                      </p>
+                      <p class="text-gray-300">
+                        Currently pursuing advanced studies in computer science
+                        with focus on AI/ML, cloud computing, and full-stack
+                        development.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timeline Dot -->
+                <div
+                  class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-teal-400 shadow-lg z-10 transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-blue-400/30"
+                >
+                  <i class="fas fa-user-graduate text-white text-xl"></i>
+                </div>
+
+                <!-- Right Side -->
+                <div
+                  class="w-5/12 transform transition-all duration-500 group-hover:translate-x-6"
+                >
+                  <div class="h-full flex items-center">
+                    <div
+                      class="bg-gray-800 bg-opacity-30 p-6 rounded-2xl border border-gray-700 w-full"
+                    >
+                      <div class="flex flex-wrap gap-2">
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Artificial Intelligence</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Cloud Computing</span
+                        >
+                        <span
+                          class="px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-gray-300"
+                          >Full-Stack Dev</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications & Internships -->
+        <div class="mt-20 md:mt-32">
+          <div class="text-center mb-12 md:mb-16">
+            <h3
+              class="text-3xl md:text-4xl font-bold gradient-text bg-clip-text text-transparent mb-3"
+            >
+              Professional Development
+            </h3>
+            <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+              Complementing my formal education with cutting-edge certifications
+              and real-world experience
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            <!-- Internship -->
+            <div
+              class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl md:rounded-2xl overflow-hidden border border-gray-700 hover:border-green-400 transition-all duration-300"
+            >
+              <div
+                class="h-40 md:h-48 bg-gradient-to-r from-green-900 to-green-800 flex items-center justify-center relative overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center"
+                ></div>
+                <div class="relative z-10 text-center p-4 md:p-6">
+                  <div
+                    class="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center mb-3 md:mb-4 shadow-lg"
+                  >
+                    <i
+                      class="fas fa-briefcase text-white text-xl md:text-2xl"
+                    ></i>
+                  </div>
+                  <h4 class="text-xl md:text-2xl font-bold text-white">
+                    Full Stack Development 
+                  </h4>
+                  <p class="text-green-400 text-sm md:text-base">
+                    Qualitas Techno Solutions
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 md:p-6">
+                <p class="text-gray-300 text-sm md:text-base mb-4 md:mb-6">
+                  Developed and deployed both front-end and back-end technologies.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4 md:mb-6">
+                  <span
+                    class="px-2 py-1 rounded-full text-xs font-medium bg-green-900 bg-opacity-50 text-green-300"
+                    >TensorFlow</span
+                  >
+                  <span
+                    class="px-2 py-1 rounded-full text-xs font-medium bg-green-900 bg-opacity-50 text-green-300"
+                    >Python</span
+                  >
+                  <span
+                    class="px-2 py-1 rounded-full text-xs font-medium bg-green-900 bg-opacity-50 text-green-300"
+                    >Data Analysis</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-gray-400"
+                    >Summer 2023</span
+                  >
+                  <a
+                     
+                    View Certificate
+                    <i class="fas fa-arrow-right ml-1 md:ml-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div
+              class="bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-xl md:rounded-2xl overflow-hidden border border-gray-700 hover:border-purple-400 transition-all duration-300"
+            >
+              <div
+                class="h-40 md:h-48 bg-gradient-to-r from-purple-900 to-purple-800 flex items-center justify-center relative overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center"
+                ></div>
+                <div class="relative z-10 text-center p-4 md:p-6">
+                  <div
+                    class="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center mb-3 md:mb-4 shadow-lg"
+                  >
+                    <i
+                      class="fas fa-certificate text-white text-xl md:text-2xl"
+                    ></i>
+                  </div>
+                  <h4 class="text-xl md:text-2xl font-bold text-white">
+                    Professional Certifications
+                  </h4>
+                  <p class="text-purple-400 text-sm md:text-base">
+                    Various Platforms
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 md:p-6">
+                <div class="grid grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+                  <div
+                    class="bg-gray-700 bg-opacity-50 p-3 md:p-4 rounded-lg border border-gray-600 hover:border-green-400 transition"
+                  >
+                    <div class="text-green-400 mb-1 md:mb-2 text-center">
+                      <i class="fas fa-palette text-sm md:text-base"></i>
+                    </div>
+                    <h5
+                      class="font-medium text-white text-xs md:text-sm mb-1 text-center"
+                    >
+                      UI/UX Design
+                    </h5>
+                  </div>
+                  <div
+                    class="bg-gray-700 bg-opacity-50 p-3 md:p-4 rounded-lg border border-gray-600 hover:border-blue-400 transition"
+                  >
+                    <div class="text-blue-400 mb-1 md:mb-2 text-center">
+                      <i class="fas fa-robot text-sm md:text-base"></i>
+                    </div>
+                    <h5
+                      class="font-medium text-white text-xs md:text-sm mb-1 text-center"
+                    >
+                      AI/ML
+                    </h5>
+                  </div>
+                  <div
+                    class="bg-gray-700 bg-opacity-50 p-3 md:p-4 rounded-lg border border-gray-600 hover:border-yellow-400 transition"
+                  >
+                    <div class="text-yellow-400 mb-1 md:mb-2 text-center">
+                      <i class="fab fa-android text-sm md:text-base"></i>
+                    </div>
+                    <h5
+                      class="font-medium text-white text-xs md:text-sm mb-1 text-center"
+                    >
+                      Android Dev
+                    </h5>
+                  </div>
+                  <div
+                    class="bg-gray-700 bg-opacity-50 p-3 md:p-4 rounded-lg border border-gray-600 hover:border-red-400 transition"
+                  >
+                    <div class="text-red-400 mb-1 md:mb-2 text-center">
+                      <i class="fas fa-code text-sm md:text-base"></i>
+                    </div>
+                    <h5
+                      class="font-medium text-white text-xs md:text-sm mb-1 text-center"
+                    >
+                      Full-Stack
+                    </h5>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono text-gray-400"
+                    >2020 - Present</span
+                  >
+                  <!-- <a
+                    href="#"
+                    class="text-purple-400 hover:text-purple-300 text-xs md:text-sm font-medium flex items-center"
+                  >
+                    View All <i class="fas fa-arrow-right ml-1 md:ml-2"></i>
+                  </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      id="skills"
+      class="py-20 bg-gray-900 relative overflow-hidden section"
+    >
+      <div
+        class="absolute top-0 left-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">My Skills</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <!-- Skill Cards -->
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-js text-green-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">JavaScript</h3>
+            <p class="text-gray-400 text-center text-sm">
+              ES6+, Async/Await, Functional Programming
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-green-400 h-1.5 rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-react text-blue-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">React</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Hooks, Context API, Redux, Performance
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-blue-400 h-1.5 rounded-full"
+                style="width: 60%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-node-js text-green-500 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Node.js</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Express, REST APIs, Authentication
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-green-500 h-1.5 rounded-full"
+                style="width: 50%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fas fa-fire text-red-300 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Firebase</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Auth, Firestore, Cloud Functions
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-red-300 h-1.5 rounded-full"
+                style="width: 60%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fas fa-mobile-alt text-blue-300 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Flutter</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Cross-platform, Beautiful UIs
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-blue-300 h-1.5 rounded-full"
+                style="width: 55%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fas fa-microchip text-gray-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Embedded C</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Microcontrollers, IoT Devices
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-gray-400 h-1.5 rounded-full"
+                style="width: 65%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-figma text-purple-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Figma</h3>
+            <p class="text-gray-400 text-center text-sm">
+              UI/UX Design, Prototyping
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-purple-400 h-1.5 rounded-full"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-android text-green-500 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Android</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Java/Kotlin, Jetpack Components
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-green-500 h-1.5 rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fab fa-react text-blue-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">React Native</h3>
+            <p class="text-gray-400 text-center text-sm">
+              Java/Kotlin, Jetpack Components
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-blue-400 h-1.5 rounded-full"
+                style="width: 70%"
+              ></div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="skill-card bg-gray-800 p-6 rounded-xl border border-gray-700 transition duration-300 flex flex-col items-center relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div
+              class="w-16 h-16 mb-4 flex items-center justify-center bg-gray-700 rounded-xl group-hover:bg-gradient-to-br from-green-400 to-blue-500 transition duration-300"
+            >
+              <i
+                class="fas fa-brain text-purple-400 text-3xl group-hover:text-white transition duration-300"
+              ></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">AI/ML</h3>
+            <p class="text-gray-400 text-center text-sm">
+              OpenCV, Gemini API, NLP
+            </p>
+            <div class="mt-4 w-full bg-gray-700 rounded-full h-1.5">
+              <div
+                class="bg-purple-400 h-1.5 rounded-full"
+                style="width: 65%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-20 bg-gray-900 relative overflow-hidden section"
+    >
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">Featured Projects</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <!-- Projects Carousel -->
+        <div class="relative">
+          <div class="projects-carousel overflow-hidden">
+            <div
+              class="flex transition-transform duration-500"
+              id="projects-track"
+            >
+              <!-- Project 1 -->
+              <div
+                class="project-card min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4 transition duration-300"
+              >
+                <div
+                  class="bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full border border-gray-700 flex flex-col"
+                >
+                  <div
+                    class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center relative overflow-hidden"
+                  >
+                    <div class="absolute inset-0 bg-black opacity-30"></div>
+                    <i class="fas fa-robot text-white text-6xl z-10"></i>
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500"
+                    ></div>
+                  </div>
+                  <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">
+                      CrisisIQ-disaster-learning-paltform
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                      Developed CrisisIQ, an AI-enabled disaster management learning platform for the Smart India Hackathon. The platform offers personalised learning modules, real-time disaster awareness, emergency preparedness resources, and interactive assessments to help users respond effectively during natural and man-made disasters.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        class="project-tag bg-purple-900 bg-opacity-50 text-purple-300 text-xs px-3 py-1 rounded-full"
+                        >AI/ML</span
+                      >
+                      <span
+                        class="project-tag bg-red-700 bg-opacity-50 text-red-200 text-xs px-3 py-1 rounded-full"
+                        >Gemini API</span
+                      >
+                      <span
+                        class="project-tag bg-blue-900 bg-opacity-50 text-blue-300 text-xs px-3 py-1 rounded-full"
+                        >React Native</span
+                      >
+                      <span
+                        class="project-tag bg-yellow-700 bg-opacity-50 text-yellow-200 text-xs px-3 py-1 rounded-full"
+                        >Firebase</span
+                      >
+                    </div>
+                  </div>
+                  <div class="px-6 pb-6">
+                    <a
+                      href="https://github.com/sanikamore01/CrisisIQ-disaster-learning-paltform.git"
+                      class="inline-flex items-center text-green-400 hover:text-green-300 transition"
+                    >
+                      View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div
+                class="project-card min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4 transition duration-300"
+              >
+                <div
+                  class="bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full border border-gray-700 flex flex-col"
+                >
+                  <div
+                    class="h-48 bg-gradient-to-r from-blue-500 to-teal-400 flex items-center justify-center relative overflow-hidden"
+                  >
+                    <div class="absolute inset-0 bg-black opacity-30"></div>
+                    <i class="fas fa-landmark text-white text-6xl z-10"></i>
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500"
+                    ></div>
+                  </div>
+                  <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">
+                      Farmer Plaza 
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                      The Farmer’s E-Market is created to help bring together all local vendors.
+                      Communication, logistics and support within the relationship of producers to buyers and producers to producers & essentially creating an online farmers market for that offers consistent connection between all producers and buyers. The main motive of the project is to sell local and buy local. 
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        class="project-tag bg-blue-900 bg-opacity-50 text-blue-300 text-xs px-3 py-1 rounded-full"
+                        >React</span
+                      >
+                      <span
+                        class="project-tag bg-gray-900 bg-opacity-50 text-gray-300 text-xs px-3 py-1 rounded-full"
+                        >Django</span
+                      >
+                      <span
+                        class="project-tag bg-yellow-900 bg-opacity-50 text-yellow-300 text-xs px-3 py-1 rounded-full"
+                        >HTML</span
+                      >
+                      <span
+                        class="project-tag bg-green-900 bg-opacity-50 text-green-300 text-xs px-3 py-1 rounded-full"
+                        >NeonTech</span
+                      >
+                    </div>
+                  </div>
+                  <div class="px-6 pb-6">
+                    <a
+                      href="https://github.com/sanikamore01/Farmer-plaza.git"
+                      class="inline-flex items-center text-green-400 hover:text-green-300 transition"
+                    >
+                      View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- Project 3 -->
+              <div
+                class="project-card min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4 transition duration-300"
+              >
+                <div
+                  class="bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full border border-gray-700 flex flex-col"
+                >
+                  <div
+                    class="h-48 bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center relative overflow-hidden"
+                  >
+                    <div class="absolute inset-0 bg-black opacity-30"></div>
+                    <i class="fas fa-dumbbell text-white text-6xl z-10"></i>
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500"
+                    ></div>
+                  </div>
+                  <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">
+                      PCOD Prediction & Monitoring System
+
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                      An intelligent, IoT-powered platform that collects physiological and lifestyle data, applies machine learning to predict PCOD risk, and delivers personalized insights through an intuitive dashboard — empowering patients and clinicians alike.
+
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        class="project-tag bg-green-900 bg-opacity-50 text-green-300 text-xs px-3 py-1 rounded-full"
+                        >Flutter</span
+                      >
+                      <span
+                        class="project-tag bg-red-900 bg-opacity-50 text-red-300 text-xs px-3 py-1 rounded-full"
+                        >Gemini API</span
+                      >
+                      <span
+                        class="project-tag bg-indigo-900 bg-opacity-50 text-indigo-300 text-xs px-3 py-1 rounded-full"
+                        >Dart</span
+                      >
+                    </div>
+                  </div>
+                  <div class="px-6 pb-6">
+                    <a
+                      href="https://github.com/sanikamore01/PCOD.git"
+                      class="inline-flex items-center text-green-400 hover:text-green-300 transition"
+                    >
+                      View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 4 -->
+              <div
+                class="project-card min-w-full md:min-w-[50%] lg:min-w-[33.333%] px-4 transition duration-300"
+              >
+                <div
+                  class="bg-gray-800 rounded-xl overflow-hidden shadow-lg h-full border border-gray-700 flex flex-col"
+                >
+                  <div
+                    class="h-48 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center relative overflow-hidden"
+                  >
+                    <div class="absolute inset-0 bg-black opacity-30"></div>
+                    <i class="fas fa-code text-white text-6xl z-10"></i>
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-500"
+                    ></div>
+                  </div>
+                  <div class="p-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-2 text-white">
+                      DevConnect Platform (Comming Soon)
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                      Social platform for developers to collaborate, share
+                      projects, and find mentors. Built with MERN stack and
+                      WebSockets.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        class="project-tag bg-blue-900 bg-opacity-50 text-blue-300 text-xs px-3 py-1 rounded-full"
+                        >MongoDB</span
+                      >
+                      <span
+                        class="project-tag bg-yellow-900 bg-opacity-50 text-yellow-300 text-xs px-3 py-1 rounded-full"
+                        >Express</span
+                      >
+                      <span
+                        class="project-tag bg-blue-900 bg-opacity-50 text-blue-300 text-xs px-3 py-1 rounded-full"
+                        >React</span
+                      >
+                      <span
+                        class="project-tag bg-green-900 bg-opacity-50 text-green-300 text-xs px-3 py-1 rounded-full"
+                        >Node.js</span
+                      >
+                    </div>
+                  </div>
+                  <div class="px-6 pb-6">
+                    <a
+                      href="#"
+                      class="inline-flex items-center text-green-400 hover:text-green-300 transition"
+                    >
+                      View Project <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 bg-opacity-80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-gray-700 transition hover:scale-110"
+            id="prev-project"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 bg-opacity-80 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-gray-700 transition hover:scale-110"
+            id="next-project"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="https://github.com/sanikamore01"
+            class="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-black px-8 py-3 rounded-full font-bold hover:shadow-lg hover:shadow-green-400/30 transition transform hover:-translate-y-1 hover:scale-105"
+          >
+            View All Projects <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900 relative overflow-hidden section">
+      <div
+        class="absolute top-0 left-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">Testimonials</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative group overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-green-400"
+              >
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D5603AQF-Zg1dmfpJ2w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1712208627117?e=1755734400&v=beta&t=OzL6z9a3ACyo2ChFYrVcNoteRXkSLDHi-jwr4fZt5fs"
+                  alt="Client"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold text-white">Pranali Damate</h4>
+                <p class="text-gray-400 text-sm">
+                  Senior Engineer, Micron Technology, Inc.
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic relative z-10">
+              "In today’s fast-paced tech landscape, it's rare to come across
+              individuals who not only possess a deep understanding of core
+              technologies but also demonstrate a remarkable ability to apply
+              that knowledge in real-world scenarios. Kamal showcased technical
+              acuity, initiative, and a strong work ethic during our
+              collaboration. His ability to adapt, innovate, and drive solutions
+              made a notable impact. I have no doubt that he will continue to
+              excel and make meaningful contributions wherever he goes."
+            </p>
+            <div class="flex mt-6 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div
+              class="absolute top-4 right-4 text-6xl opacity-10 text-green-400"
+            >
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative group overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-blue-400"
+              >
+                <img
+                  src="https://media.licdn.com/dms/image/v2/D4D03AQHOOuCWtG0wvg/profile-displayphoto-shrink_800_800/B4DZTRjqrWHIAc-/0/1738682581381?e=1755734400&v=beta&t=auco0O42aJ_QdiuRN8AKlBHaT9p-I3pCDb-r_mX4gSM"
+                  alt="Client"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold text-white">Avinash Sakat</h4>
+                <p class="text-gray-400 text-sm">
+                  Founder & Director Of TECHSPOT INFOTECH LLP
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic relative z-10">
+              "During his internship at TECHSPOT INFOTECH LLP, Kamal stood out
+              not just for his curiosity and dedication, but for his strong
+              grasp of Artificial Intelligence and Machine Learning concepts. He
+              consistently delivered quality work, asked the right questions,
+              and demonstrated a genuine passion for innovation. Awarding him
+              the ‘Best Intern’ was a reflection of his outstanding performance
+              and potential. I’m confident he has a bright future in the tech
+              industry."
+            </p>
+            <div class="flex mt-6 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div
+              class="absolute top-4 right-4 text-6xl opacity-10 text-blue-400"
+            >
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>
+
+          <div
+            class="bg-gray-800 p-8 rounded-xl border border-gray-700 relative group overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-0 group-hover:opacity-10 transition duration-300"
+            ></div>
+            <div class="flex items-center mb-6">
+              <div
+                class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-pink-400"
+              >
+                <img
+                  src="https://i.postimg.cc/66MVktgz/rasalsir.jpg"
+                  alt="Client"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h4 class="font-bold text-white">Shubham Rasal</h4>
+                <p class="text-gray-400 text-sm">Lecturer, DKTE's YCP</p>
+              </div>
+            </div>
+            <p class="text-gray-300 italic relative z-10">
+              "As a faculty member at DKTE’s YCP, I had the opportunity to
+              mentor Kamal and closely observe his academic and project-oriented
+              growth. He consistently demonstrated a proactive approach, strong
+              analytical thinking, and a commendable understanding of both
+              technical and business aspects of technology. His ability to
+              connect classroom learning with practical implementation set him
+              apart. I’m confident he will thrive in any professional
+              environment he chooses."
+            </p>
+            <div class="flex mt-6 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <!-- <i class="fas fa-star-half-alt"></i> -->
+            </div>
+            <div
+              class="absolute top-4 right-4 text-6xl opacity-10 text-blue-400"
+            >
+              <i class="fas fa-quote-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Contributions -->
+    <section class="py-20 bg-gray-900 relative overflow-hidden section">
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">My Coding Activity</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-gray-800 to-gray-600 rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+              <img
+                src="https://ghchart.rshah.org/kamalsharma1009"
+                alt="Kamal's GitHub contributions"
+                class="w-full rounded-lg hover:scale-105 transition duration-300"
+              />
+            </div>
+            <div class="md:w-1/2 md:pl-12">
+              <h3 class="text-2xl font-bold text-white mb-4">
+                Open Source Contributions
+              </h3>
+              <p class="text-gray-400 mb-6">
+                I believe in continuous learning and contributing to the
+                open-source community. Here's my GitHub contributions calendar
+                showing my coding activity throughout the year.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-8">
+                <div
+                  class="bg-gray-700 p-4 rounded-lg hover:transform hover:-translate-y-1 transition duration-300"
+                >
+                  <h4 class="text-green-400 font-bold text-xl">30+</h4>
+                  <p class="text-gray-400">Commits This Year</p>
+                </div>
+                <div
+                  class="bg-gray-700 p-4 rounded-lg hover:transform hover:-translate-y-1 transition duration-300"
+                >
+                  <h4 class="text-purple-400 font-bold text-xl">3+</h4>
+                  <p class="text-gray-400">Repositories</p>
+                </div>
+              </div>
+              <a
+                href="https://github.com/sanikamore01"
+                target="_blank"
+                class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition transform hover:-translate-y-1 hover:scale-105"
+              >
+                <i class="fab fa-github mr-2 text-xl"></i> Explore My GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden section"
+    >
+      <div
+        class="absolute top-0 left-0 w-64 h-64 bg-purple-900 rounded-full filter blur-3xl opacity-20 -ml-32 -mt-32"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-64 h-64 bg-green-900 rounded-full filter blur-3xl opacity-20 -mr-32 -mb-32"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center mb-16">
+          <h2 class="text-4xl font-bold text-center relative inline-block">
+            <span class="relative z-10 px-4">
+              <span class="gradient-text">Get In Touch</span>
+            </span>
+            <span
+              class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 to-white rounded-full"
+            ></span>
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="lg:w-2/5">
+            <h3 class="text-2xl font-bold text-white mb-6">
+              Let's Talk About Your Project
+            </h3>
+            <p class="text-gray-400 mb-8">
+              Have a project in mind or want to discuss potential opportunities?
+              Feel free to reach out through any of these channels or fill out
+              the form.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="bg-gradient-to-r from-green-400 to-blue-500 p-3 rounded-lg mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-envelope text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Email</h4>
+                  <a
+                    href="mailto:kamalsharma.100904@gmail.com"
+                    class="text-gray-400 hover:text-green-400 transition"
+                    >sanikamore01679@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="bg-gradient-to-r from-green-400 to-blue-500 p-3 rounded-lg mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-phone-alt text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Phone</h4>
+                  <a
+                    href="tel:+7757071009"
+                    class="text-gray-400 hover:text-green-400 transition"
+                    >9665508421</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="bg-gradient-to-r from-green-400 to-blue-500 p-3 rounded-lg mr-4 flex-shrink-0"
+                >
+                  <i class="fas fa-map-marker-alt text-white"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white">Location</h4>
+                  <p class="text-gray-400">Kolhapur, Maharashtra, India</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10">
+              <h4 class="font-semibold text-white mb-4">Connect with me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.linkedin.com/in/sanika-more-bb2731295/"
+                  class="bg-gray-700 hover:bg-gray-600 transition w-12 h-12 rounded-full flex items-center justify-center text-white hover:text-blue-400 hover:scale-110"
+                >
+                  <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a
+                  href="https://github.com/sanikamore01"
+                  class="bg-gray-700 hover:bg-gray-600 transition w-12 h-12 rounded-full flex items-center justify-center text-white hover:text-purple-400 hover:scale-110"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href=" "
+                  class="bg-gray-700 hover:bg-gray-600 transition w-12 h-12 rounded-full flex items-center justify-center text-white hover:text-blue-600 hover:scale-110"
+                >
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/_sanuuu.01_?igsh=cGw3cnByeTZrbHl4"
+                  class="bg-gray-700 hover:bg-gray-600 transition w-12 h-12 rounded-full flex items-center justify-center text-white hover:text-pink-400 hover:scale-110"
+                >
+                  <i class="fab fa-instagram text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-3/5">
+            <form
+              id="contact-form"
+              action=""
+              method="POST"
+              class="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-xl border border-gray-700"
+            >
+              <!-- FormSubmit Configuration -->
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://yourportfolio.com/thank-you.html"
+              />
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Message"
+              />
+              <input type="hidden" name="_template" value="table" />
+
+              <!-- Your form fields -->
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label for="name" class="block mb-2 font-medium text-white"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="form-input w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent text-white placeholder-gray-400"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block mb-2 font-medium text-white"
+                    >Your Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="form-input w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent text-white placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-6">
+                <label for="subject" class="block mb-2 font-medium text-white"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  class="form-input w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent text-white placeholder-gray-400"
+                />
+              </div>
+
+              <div class="mb-8">
+                <label for="message" class="block mb-2 font-medium text-white"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  class="form-input w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent text-white placeholder-gray-400"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-green-400 to-blue-500 text-black px-8 py-4 rounded-lg font-bold hover:shadow-lg hover:shadow-green-400/30 transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+              >
+                <i class="fas fa-paper-plane mr-2"></i> Send Message
+              </button>
+            </form>
+
+            <script>
+              // Enhanced form handling
+              document
+                .getElementById("contact-form")
+                .addEventListener("submit", function (e) {
+                  const form = e.target;
+                  const submitBtn = form.querySelector('button[type="submit"]');
+                  const originalBtnText = submitBtn.innerHTML;
+
+                  // Show loading state
+                  submitBtn.innerHTML =
+                    '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+                  submitBtn.disabled = true;
+
+                  // Fallback if FormSubmit fails
+                  setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                  }, 10000);
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-black bg-opacity-80 text-gray-400 py-12 border-t border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center mb-8"
+        >
+          <div class="mb-6 md:mb-0">
+            <a href="#home" class="flex items-center space-x-3">
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center"
+              >
+                <span class="text-white font-bold">SM</span>
+              </div>
+              <span class="text-xl font-bold gradient-text">Sanika More</span>
+            </a>
+            <p class="mt-2 text-sm">Building digital solutions that matter</p>
+          </div>
+
+          <div class="flex space-x-2 mb-6 md:mb-0">
+            <a
+              href="#home"
+              class="hover:text-white transition hover:text-green-400"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="hover:text-white transition hover:text-green-400"
+              >About</a
+            >
+            <a
+              href="#education"
+              class="hover:text-white transition hover:text-green-400"
+              >Education</a
+            >
+            <a
+              href="#skills"
+              class="hover:text-white transition hover:text-green-400"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="hover:text-white transition hover:text-green-400"
+              >Projects</a
+            >
+            <!-- <a
+              href="#contact"
+              class="hover:text-white transition hover:text-green-400"
+              >Contact</a
+            > -->
+          </div>
+
+          <div class="flex space-x-4">
+            <a
+              href="https://www.linkedin.com/in/kamal-sharma-427785250/"
+              class="hover:text-white transition hover:text-blue-400"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/kamalsharma1009"
+              class="hover:text-white transition hover:text-purple-400"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://x.com/KamalSharma1009?t=6HYqNCkin95pQ-AQnnhBfA&s=09"
+              class="hover:text-white transition hover:text-blue-600"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/hmm.sharmaji?igsh=MXc2bDN2cGdhdGE5Yg=="
+              class="hover:text-white transition hover:text-pink-400"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center">
+          <p class="text-sm">
+            © <span id="current-year"></span> Sanika More. All rights reserved.
+          </p>
+          <p class="text-xs mt-2 text-gray-600">
+            Made with <i class="fas fa-heart text-red-400"></i> and
+            <i class="fas fa-coffee text-yellow-400"></i> in India
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-8 right-8 z-50">
+      <div class="relative">
+        <button
+          id="fab-main"
+          class="floating-btn w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full shadow-lg flex items-center justify-center text-black focus:outline-none hover:scale-110 transition"
+        >
+          <i class="fas fa-plus text-xl"></i>
+        </button>
+
+        <div id="fab-menu" class="absolute bottom-20 right-0 hidden space-y-3">
+          <a
+            href="#contact"
+            class="w-12 h-12 bg-gray-800 rounded-full shadow-md flex items-center justify-center text-white hover:bg-gray-700 transition transform hover:scale-110"
+            title="Contact"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kamal-sharma-427785250/"
+            class="w-12 h-12 bg-gray-800 rounded-full shadow-md flex items-center justify-center text-white hover:bg-gray-700 transition transform hover:scale-110"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="https://github.com/kamalsharma1009"
+            class="w-12 h-12 bg-gray-800 rounded-full shadow-md flex items-center justify-center text-white hover:bg-gray-700 transition transform hover:scale-110"
+            title="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <button
+            id="scroll-top"
+            class="w-12 h-12 bg-gray-800 rounded-full shadow-md flex items-center justify-center text-white hover:bg-gray-700 transition transform hover:scale-110"
+            title="Scroll to Top"
+          >
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // FAB toggle
+      const fabMain = document.getElementById("fab-main");
+      const fabMenu = document.getElementById("fab-menu");
+
+      fabMain.addEventListener("click", () => {
+        fabMenu.classList.toggle("hidden");
+        fabMain.querySelector("i").classList.toggle("fa-plus");
+        fabMain.querySelector("i").classList.toggle("fa-times");
+      });
+
+      // Scroll to top
+      const scrollTopBtn = document.getElementById("scroll-top");
+
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        fabMenu.classList.add("hidden");
+        fabMain.querySelector("i").classList.add("fa-plus");
+        fabMain.querySelector("i").classList.remove("fa-times");
+      });
+
+      // Close FAB menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!fabMain.contains(e.target) && !fabMenu.contains(e.target)) {
+          fabMenu.classList.add("hidden");
+          fabMain.querySelector("i").classList.add("fa-plus");
+          fabMain.querySelector("i").classList.remove("fa-times");
+        }
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+
+            // Close FAB menu if open
+            fabMenu.classList.add("hidden");
+            fabMain.querySelector("i").classList.add("fa-plus");
+            fabMain.querySelector("i").classList.remove("fa-times");
+          }
+        });
+      });
+
+      // Typed.js animation
+      document.addEventListener("DOMContentLoaded", function () {
+        var typed = new Typed("#typed", {
+          strings: [
+            "web apps",
+            "mobile apps",
+            "AI solutions",
+            "digital experiences",
+          ],
+          typeSpeed: 50,
+          backSpeed: 30,
+          loop: true,
+          showCursor: true,
+          cursorChar: "|",
+          autoInsertCss: true,
+        });
+      });
+
+      // Projects carousel
+      const projectsTrack = document.getElementById("projects-track");
+      const prevBtn = document.getElementById("prev-project");
+      const nextBtn = document.getElementById("next-project");
+      let currentPosition = 0;
+
+      nextBtn.addEventListener("click", () => {
+        const projectCards = document.querySelectorAll(".project-card");
+        const cardWidth = projectCards[0].offsetWidth;
+        const maxPosition = -(cardWidth * (projectCards.length - 1));
+
+        currentPosition = Math.max(currentPosition - cardWidth, maxPosition);
+        projectsTrack.style.transform = `translateX(${currentPosition}px)`;
+      });
+
+      prevBtn.addEventListener("click", () => {
+        const projectCards = document.querySelectorAll(".project-card");
+        const cardWidth = projectCards[0].offsetWidth;
+
+        currentPosition = Math.min(currentPosition + cardWidth, 0);
+        projectsTrack.style.transform = `translateX(${currentPosition}px)`;
+      });
+
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Create animated particles
+      function createParticles() {
+        const particlesContainer = document.createElement("div");
+        particlesContainer.id = "particles-js";
+        particlesContainer.style.position = "fixed";
+        particlesContainer.style.top = "0";
+        particlesContainer.style.left = "0";
+        particlesContainer.style.width = "100%";
+        particlesContainer.style.height = "100%";
+        particlesContainer.style.pointerEvents = "none";
+        particlesContainer.style.zIndex = "-1";
+        document.body.appendChild(particlesContainer);
+
+        const colors = ["#26FFA0", "#3DDC97", "#6F41C2", "#9B76E3"];
+
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 5 + 2;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.backgroundColor = color;
+          particle.style.opacity = Math.random() * 0.5 + 0.1;
+
+          // Random position
+          particle.style.position = "absolute";
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+
+          // Animation
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 5;
+          const xMovement = (Math.random() - 0.5) * 100;
+          const yMovement = (Math.random() - 0.5) * 100;
+
+          particle.style.transition = `all ${duration}s linear ${delay}s`;
+
+          particlesContainer.appendChild(particle);
+
+          // Animate particles
+          setInterval(() => {
+            particle.style.transform = `translate(${xMovement}px, ${yMovement}px)`;
+
+            setTimeout(() => {
+              particle.style.transform = "translate(0, 0)";
+            }, duration * 1000);
+          }, (duration + delay) * 1000);
+        }
+      }
+
+      createParticles();
+
+      // Underline navigation items on hover
+      const navLinks = document.querySelectorAll("nav a");
+      navLinks.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          const underline = link.querySelector("div");
+          underline.classList.add("w-full");
+        });
+
+        link.addEventListener("mouseleave", () => {
+          const underline = link.querySelector("div");
+          underline.classList.remove("w-full");
+        });
+      });
+
+      // Active nav link based on scroll position
+      const sections = document.querySelectorAll("section");
+      const navItems = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === `#${current}`) {
+            item.classList.add("active");
+          }
+        });
+      });
+
+      // Form submission
+      const contactForm = document.getElementById("contact-form");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        // Here you would typically send the form data to a server
+        console.log({ name, email, subject, message });
+
+        // Show success message
+        alert("Thank you for your message! I'll get back to you soon.");
+        contactForm.reset();
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("section-hidden");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".section").forEach((section) => {
+        section.classList.add("section-hidden");
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
