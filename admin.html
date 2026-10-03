@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Admin</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      color: #222;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      background: #16a34a;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #15803d;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Portfolio Admin</h1>
+    <p class="subtitle">Update your Hero section</p>
+
+    <form id="hero-form">
+
+      <label for="hero-name">Hero Name</label>
+      <input
+        type="text"
+        id="hero-name"
+        placeholder="Enter your name"
+        required
+      >
+
+      <label for="hero-description">Hero Description</label>
+      <textarea
+        id="hero-description"
+        placeholder="Enter your description"
+        required
+      ></textarea>
+
+      <label for="hero-image">Hero Image URL</label>
+      <input
+        type="url"
+        id="hero-image"
+        placeholder="Enter image URL"
+        required
+      >
+
+      <button type="submit">Save Changes</button>
+
+    </form>
+
+    <p id="message"></p>
+
+  </div>
+
+  <script>
+
+    const API_URL = "http://127.0.0.1:5000/api/hero";
+
+    async function loadHero() {
+      try {
+        const response = await fetch(API_URL);
+        const hero = await response.json();
+
+        document.getElementById("hero-name").value = hero.name;
+        document.getElementById("hero-description").value = hero.description;
+        document.getElementById("hero-image").value = hero.image_url;
+
+      } catch (error) {
+        document.getElementById("message").textContent =
+          "Failed to load Hero data.";
+        console.error(error);
+      }
+    }
+
+    document.getElementById("hero-form").addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      const data = {
+        name: document.getElementById("hero-name").value,
+        description: document.getElementById("hero-description").value,
+        image_url: document.getElementById("hero-image").value
+      };
+
+      try {
+
+        const response = await fetch(API_URL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          document.getElementById("message").textContent =
+            "Hero content updated successfully!";
+        } else {
+          document.getElementById("message").textContent =
+            result.error || "Update failed.";
+        }
+
+      } catch (error) {
+
+        document.getElementById("message").textContent =
+          "Failed to connect to backend.";
+
+        console.error(error);
+      }
+
+    });
+
+    loadHero();
+
+  </script>
+
+</body>
+</html>
