@@ -104,13 +104,8 @@
         required
       ></textarea>
 
-      <label for="hero-image">Hero Image URL</label>
-      <input
-        type="url"
-        id="hero-image"
-        placeholder="Enter image URL"
-        required
-      >
+      <label for="hero-image">Hero Image</label>
+      <input type="file" id="hero-image" accept="image/*">
 
       <button type="submit">Save Changes</button>
 
@@ -122,7 +117,7 @@
 
   <script>
 
-    const API_URL = "https://portfolio-yhka.onrender.com/api/hero";
+    const API_URL = "http://127.0.0.1:5000/api/hero";
 
     async function loadHero() {
       try {
@@ -131,7 +126,7 @@
 
         document.getElementById("hero-name").value = hero.name;
         document.getElementById("hero-description").value = hero.description;
-        document.getElementById("hero-image").value = hero.image_url;
+         
 
       } catch (error) {
         document.getElementById("message").textContent =
@@ -144,20 +139,30 @@
 
       event.preventDefault();
 
-      const data = {
-        name: document.getElementById("hero-name").value,
-        description: document.getElementById("hero-description").value,
-        image_url: document.getElementById("hero-image").value
-      };
+     const formData = new FormData();
+
+        formData.append(
+          "name",
+          document.getElementById("hero-name").value
+        );
+
+        formData.append(
+          "description",
+          document.getElementById("hero-description").value
+        );
+
+        const imageFile = document.getElementById("hero-image").files[0];
+
+        if (imageFile) {
+          formData.append("image", imageFile);
+        }
 
       try {
 
         const response = await fetch(API_URL, {
           method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(data)
+          body: formData
+          
         });
 
         const result = await response.json();

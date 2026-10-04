@@ -2,4 +2,5 @@ Flask
 flask-cors
 psycopg2-binary
 python-dotenv
-gunicorn
+gunicorn 
+boto3
